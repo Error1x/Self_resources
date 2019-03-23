@@ -1,0 +1,111 @@
+# set to yes if you want Conky to be forked in the background
+background no
+cpu_avg_samples 2
+net_avg_samples 2
+out_to_console no
+
+# Use Xft?
+use_xft yes
+# Xft font when Xft is enabled
+xftfont Sans:size=11
+own_window_argb_visual yes
+#own_window_colour hotpink
+# Text alpha when using Xft
+xftalpha 0.8
+# on_bottom yes
+# Update interval in seconds
+update_interval 3
+# Create own window instead of using desktop (required in nautilus)
+own_window yes
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+#own_window_type override
+own_window_type normal
+
+# Draw shades?
+draw_shades no
+# Draw outlines?
+draw_outline no
+# Draw borders around text
+draw_borders no
+# Stippled borders?
+stippled_borders no
+
+# border width
+border_width 1
+# Default colors and also border colors
+default_color black
+default_shade_color white
+default_outline_color white
+
+
+#minimum_size 10 10
+gap_x 15
+gap_y 20
+alignment top_right
+
+# Gap between borders of screen and text
+# Add spaces to keep things from moving about?  This only affects
+# certain objects.
+use_spacer none
+# Subtract file system buffers from used memory?
+no_buffers yes
+# set to yes if you want all text to be in uppercase
+uppercase no
+
+
+
+TEXT
+
+${color Yellow}SYSTEM ${hr 1}${color}
+Hostname: $alignr$nodename
+Kernel: $alignr$kernel$machine
+Uptime: $alignr$uptime
+Temp: ${alignr}${exec sensors | grep 'Core 0' | cut -c17-22}C
+Battery:$alignr${battery BAT0}
+#Battery:$alignr${battery_percent BAT0}% 
+${color Yellow}CPU${hr 1}${color}
+${alignr}${freq dyn} MHz
+Processes: ${alignr}$processes ($running_processes running)
+CPU0 ${alignr}${cpu cpu0}%
+${cpubar 4 cpu0}
+CPU1 ${alignr}${cpu cpu1}%
+${cpubar 4 cpu1}
+CPU2 ${alignr}${cpu cpu2}%
+${cpubar 4 cpu2}
+CPU3 ${alignr}${cpu cpu3}%
+${cpubar 4 cpu3}
+CPU4 ${alignr}${cpu cpu4}%
+${cpubar 4 cpu4}
+CPU5 ${alignr}${cpu cpu5}%
+${cpubar 4 cpu5}
+CPU6 ${alignr}${cpu cpu6}%
+${cpubar 4 cpu6}
+CPU7 ${alignr}${cpu cpu7}%
+${cpubar 4 cpu7}
+
+${color Yellow}RAM${hr 1}${color}
+${alignr}$mem / $memmax ($memperc%)
+${membar 4}
+${color Yellow}SWAP ${alignr}$swap / $swapmax ($swapperc%)${color}
+${swapbar 4}
+
+${color Yellow}Tasks${hr 1}${color}
+
+${top name 1}$alignr${top cpu 1} ${top mem 1}
+${top name 2}$alignr${top cpu 2} ${top mem 2}
+${top name 3}$alignr${top cpu 3} ${top mem 3}
+
+${color Yellow}FILE SYSTEM ${hr 1}${color}
+
+Root: ${alignr}${fs_free /} / ${fs_size /}
+${fs_bar 4 /}
+Home: ${alignr}${fs_free /home} / ${fs_size /home}
+${fs_bar 4 /home}
+
+${color Yellow}NETWORK ${hr 1}${color}
+
+Down ${downspeed wlp0s20f3} k/s ${alignr}Up ${upspeed wlp0s20f3} k/s
+${color Yellow}${downspeedgraph wlp0s20f3 25,107} ${alignr}${upspeedgraph wlp0s20f3 25,107}${color}
+
+
