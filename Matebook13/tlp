@@ -48,9 +48,9 @@ CPU_SCALING_GOVERNOR_ON_BAT=powersave
 # Possible values strongly depend on your CPU. For available frequencies see
 # the output of tlp-stat -p.
 CPU_SCALING_MIN_FREQ_ON_AC=0
-CPU_SCALING_MAX_FREQ_ON_AC=3900000
+CPU_SCALING_MAX_FREQ_ON_AC=2000000
 CPU_SCALING_MIN_FREQ_ON_BAT=0
-CPU_SCALING_MAX_FREQ_ON_BAT=3800000
+CPU_SCALING_MAX_FREQ_ON_BAT=1000000
 
 # Set energy performance hints (HWP) for Intel P-state governor:
 #   performance, balance_performance, default, balance_power, power
@@ -64,16 +64,16 @@ CPU_SCALING_MAX_FREQ_ON_BAT=3800000
 # Values are stated as a percentage of the available performance.
 # Requires an Intel Core i processor with intel_pstate driver.
 CPU_MIN_PERF_ON_AC=0
-CPU_MAX_PERF_ON_AC=100
+CPU_MAX_PERF_ON_AC=60
 CPU_MIN_PERF_ON_BAT=0
-CPU_MAX_PERF_ON_BAT=30
+CPU_MAX_PERF_ON_BAT=15
 
 # Set the CPU "turbo boost" feature: 0=disable, 1=allow
 # Requires an Intel Core i processor.
 # Important:
 # - This may conflict with your distribution's governor settings
 # - A value of 1 does *not* activate boosting, it just allows it
-CPU_BOOST_ON_AC=1
+CPU_BOOST_ON_AC=0
 CPU_BOOST_ON_BAT=0
 
 # Minimize number of used CPU cores/hyper-threads under light load conditions:
