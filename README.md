@@ -1,4 +1,4 @@
-# Self_resources
+#  README
 
 1. These files,in the configure folder, are setting according for Error1x's hobby.
 
